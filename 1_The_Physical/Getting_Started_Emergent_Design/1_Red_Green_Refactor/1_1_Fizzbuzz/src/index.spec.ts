@@ -46,16 +46,18 @@ describe("fizzBuzz", () => {
         expect(fizzBuzz(43)).toBe("43");
     });
 
-    it('should throw error for number above 100', () => {
-        expect(() => fizzBuzz(102)).toThrow('input number out of bounds');
-    });
+    describe('it should throw error', () => {
+        it('for numbers above 100', () => {
+            expect(() => fizzBuzz(102)).toThrow('input number out of bounds');
+        });
 
-    it('should throw error for number below 1', () => {
-        expect(() => fizzBuzz(-12)).toThrow('input number out of bounds');
-    });
+        it('for numbers below 1', () => {
+            expect(() => fizzBuzz(-12)).toThrow('input number out of bounds');
+        });
 
-    it('should throw error if input is not a number', () => {
-        // force type casting to undefined, method only accepts numbers
-        expect(() => fizzBuzz(undefined as any)).toThrow('input not a number');
+        it('if input is not a number', () => {
+            // force type casting to undefined, method only accepts numbers
+            expect(() => fizzBuzz(undefined as any)).toThrow('input not a number');
+        });
     });
 });
