@@ -12,3 +12,17 @@ export function fizzBuzz(num: number): string {
 
     return "";
 }
+
+/**
+ * 
+ * 
+ * 
+ 9 returns "Fizz"
+43 returns "43"
+42 returns "Fizz"
+45 returns "FizzBuzz"
+102 (you decide, throw an Error or handle some other way)
+-12 (you decide, throw an Error or handle some other way)
+any non-number (you decide, throw an Error or handle some other way)
+ * 
+ */

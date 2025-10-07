@@ -29,4 +29,23 @@ describe("fizzBuzz", () => {
         const input = three * five;
         expect(fizzBuzz(input)).toBe(FIZZBUZZ);
     });
+
+    it('should return a Fizz if number is 9', () => {
+        expect(fizzBuzz(9)).toBe(FIZZ);
+    });
+
+    it('should return a Fizz if number is 42', () => {
+        expect(fizzBuzz(42)).toBe(FIZZ);
+    });
+
+    it('should return a Fizz if number is 45', () => {
+        expect(fizzBuzz(45)).toBe(FIZZBUZZ);
+    });
+/*
+43 returns "43"
+45 returns "FizzBuzz"
+102 (you decide, throw an Error or handle some other way)
+-12 (you decide, throw an Error or handle some other way)
+any non-number (you decide, throw an Error or handle some other way)
+*/
 });
