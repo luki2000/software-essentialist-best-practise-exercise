@@ -3,6 +3,9 @@ export const BUZZ = 'Buzz' as const;
 export const FIZZBUZZ = 'fizzBUZZ' as const;
 
 export function fizzBuzz(num: number): string {
+     if(typeof num !== "number") {
+        throw new Error('input not a number');
+    }
     if(num < 1 || num > 100) {
         throw new Error('input number out of bounds');
     }

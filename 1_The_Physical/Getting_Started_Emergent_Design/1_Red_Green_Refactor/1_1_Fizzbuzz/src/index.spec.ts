@@ -55,6 +55,7 @@ describe("fizzBuzz", () => {
     });
 
     it('should throw error if input is not a number', () => {
-        expect(() => fizzBuzz(-12)).toThrow('input not a number');
+        // force type casting to undefined, method only accepts numbers
+        expect(() => fizzBuzz(undefined as any)).toThrow('input not a number');
     });
 });
