@@ -10,7 +10,7 @@ export function fizzBuzz(num: number): string {
     if (isMultipleOfThree) return FIZZ;
     if (isMultipleOfFive) return BUZZ;
 
-    return "";
+    return num.toString();
 }
 
 /**
