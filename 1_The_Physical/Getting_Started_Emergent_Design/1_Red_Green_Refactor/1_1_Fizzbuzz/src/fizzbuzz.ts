@@ -9,5 +9,8 @@ export const FIZZBUZZ = 'fizzBUZZ' as const;
 
 export function fizzBuzz(num: number) {
     const isMultipleOfThree = num % 3 === 0;
-    return isMultipleOfThree ? FIZZ : "";
+    const isMultipleOfFive = num % 5 === 0;
+
+    if (isMultipleOfThree) return FIZZ;
+    if (isMultipleOfFive) return BUZZ;
 }
