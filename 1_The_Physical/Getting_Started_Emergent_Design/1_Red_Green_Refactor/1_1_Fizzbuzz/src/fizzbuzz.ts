@@ -3,6 +3,9 @@ export const BUZZ = 'Buzz' as const;
 export const FIZZBUZZ = 'fizzBUZZ' as const;
 
 export function fizzBuzz(num: number): string {
+    if(num < 1 || num > 100) {
+        throw new Error('input number out of bounds');
+    }
     const isMultipleOfThree = num % 3 === 0;
     const isMultipleOfFive = num % 5 === 0;
 
@@ -12,17 +15,3 @@ export function fizzBuzz(num: number): string {
 
     return num.toString();
 }
-
-/**
- * 
- * 
- * 
- 9 returns "Fizz"
-43 returns "43"
-42 returns "Fizz"
-45 returns "FizzBuzz"
-102 (you decide, throw an Error or handle some other way)
--12 (you decide, throw an Error or handle some other way)
-any non-number (you decide, throw an Error or handle some other way)
- * 
- */
