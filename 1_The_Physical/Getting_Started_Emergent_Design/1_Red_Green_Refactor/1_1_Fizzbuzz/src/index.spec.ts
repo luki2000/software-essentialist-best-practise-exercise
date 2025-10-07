@@ -1,4 +1,4 @@
-import { BUZZ, fizzBuzz } from './fizzbuzz';
+import { BUZZ, FIZZBUZZ, fizzBuzz } from './fizzbuzz';
 import { FIZZ } from './fizzbuzz';
 /**
  * Write a function that takes numbers from 1 to 100 and outputs them as a string,
@@ -26,7 +26,11 @@ describe("fizzBuzz", () => {
         expect(fizzBuzz(3)).toBe(FIZZ);
     });
 
-    fit('should return a Fizz if number is a multiple of 5', () => {
+    it('should return a Fizz if number is a multiple of 5', () => {
         expect(fizzBuzz(5)).toBe(BUZZ);
+    });
+
+     it('should return a FizzBuzz if number is a multiple of both 5 and 3', () => {
+        expect(fizzBuzz(15)).toBe(FIZZBUZZ);
     });
 });
