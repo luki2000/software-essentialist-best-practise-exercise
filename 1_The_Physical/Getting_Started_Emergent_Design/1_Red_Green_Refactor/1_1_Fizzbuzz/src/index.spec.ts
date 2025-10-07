@@ -53,7 +53,8 @@ describe("fizzBuzz", () => {
     it('should throw error for number below 1', () => {
         expect(() => fizzBuzz(-12)).toThrow('input number out of bounds');
     });
-/*
-any non-number (you decide, throw an Error or handle some other way)
-*/
+
+    it('should throw error if input is not a number', () => {
+        expect(() => fizzBuzz(-12)).toThrow('input not a number');
+    });
 });
