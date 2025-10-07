@@ -1,4 +1,4 @@
-import { fizzbuzz } from './fizzbuzz';
+import { fizzBuzz } from './fizzbuzz';
 /**
  * Write a function that takes numbers from 1 to 100 and outputs them as a string,
  * but for multiples of three it returns “Fizz” instead of the number, and for multiples
@@ -18,6 +18,11 @@ import { fizzbuzz } from './fizzbuzz';
 describe("fizzbuzz", () => {
 
     it('should return a string', () => {
-        expect(typeof fizzbuzz(5)).toBe("string");
+        expect(typeof fizzBuzz(5)).toBe("string");
     });
+
+    it('should return a Fizz if number is a multiple of 3', () => {
+        expect(fizzBuzz(3)).toBe("Fizz");
+    });
+
 });

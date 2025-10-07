@@ -4,6 +4,6 @@
  * of five it returns “Buzz.” For numbers that are multiples of both three and five, it returns “FizzBuzz.”
 */
 
-export function fizzbuzz(num: number) {
+export function fizzBuzz(num: number) {
     return "";
 }
