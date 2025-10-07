@@ -41,9 +41,12 @@ describe("fizzBuzz", () => {
     it('should return a Fizz if number is 45', () => {
         expect(fizzBuzz(45)).toBe(FIZZBUZZ);
     });
+
+    it('should return a "43" if number is 43', () => {
+        expect(fizzBuzz(43)).toBe("43");
+    });
 /*
 43 returns "43"
-45 returns "FizzBuzz"
 102 (you decide, throw an Error or handle some other way)
 -12 (you decide, throw an Error or handle some other way)
 any non-number (you decide, throw an Error or handle some other way)
