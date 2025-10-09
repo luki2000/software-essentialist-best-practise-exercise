@@ -20,13 +20,14 @@ describe('palindrome checker', () => {
     it.each([
         {input: "mom", expected: true},
         {input: "Mom", expected: true},
+        {input: "Was It A Rat I Saw", expected: true},
     ])('should return true if input is palindrome', ({input, expected}) => {
-        expect(palindrome.checker(input)).toBe(expected)
+        expect(palindrome.checker(input)).toBe(expected);
     });
 
      it.each([
         {input: "Momx", expected: false},
     ])('should return false if input is not a palindrome', ({input, expected}) => {
-        expect(palindrome.checker(input)).toBe(expected)
+        expect(palindrome.checker(input)).toBe(expected);
     });
 });
