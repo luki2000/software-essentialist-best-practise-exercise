@@ -6,7 +6,6 @@ export class Palindrome {
     }
 }
 
-// helper function
 function removeSpaces(input: string) {
     return input.replace(/ /g, "");
 }
