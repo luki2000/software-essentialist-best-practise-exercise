@@ -1,10 +1,5 @@
 import { Palindrome } from './index';
 /**
- 1. "mom" returns true
- 2. "Mom" returns true
- 3. "MoM" returns true
- 4. "Momx" returns false
- 5. "xMomx" returns true
  6. "Was It A Rat I Saw" returns true
  7. "Never Odd or Even" returns true
  8. "Never Odd or Even1" returns false 
@@ -23,15 +18,15 @@ describe('palindrome checker', () => {
     });
 
     it.each([
-        {input: "mom", result: true },
-        {input: "Mom", result: true },
-    ])('should return true if input is palindrome', () => {
-        expect(palindrome.checker("mom")).toBe(true)
+        {input: "mom", expected: true},
+        {input: "Mom", expected: true},
+    ])('should return true if input is palindrome', ({input, expected}) => {
+        expect(palindrome.checker(input)).toBe(expected)
     });
 
      it.each([
-        {input: "Momx", result: false },
-    ])('should return false if input is not a palindrome', () => {
-        expect(palindrome.checker("Momx")).toBe(false)
+        {input: "Momx", expected: false},
+    ])('should return false if input is not a palindrome', ({input, expected}) => {
+        expect(palindrome.checker(input)).toBe(expected)
     });
 });
