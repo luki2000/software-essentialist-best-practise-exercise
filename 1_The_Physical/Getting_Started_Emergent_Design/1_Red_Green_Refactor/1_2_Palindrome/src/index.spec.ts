@@ -22,6 +22,8 @@ describe('palindrome checker', () => {
         {input: "mom", expected: true},
         {input: "Mom", expected: true},
         {input: "Was It A Rat I Saw", expected: true},
+        {input: "Never Odd or Even", expected: true},
+        {input: "1Never Odd or Even1", expected: true},
     ])('should return true if input is palindrome', ({input, expected}) => {
         expect(palindrome.checker(input)).toBe(expected);
     });
