@@ -1,11 +1,4 @@
 import { Palindrome } from './index';
-/**
- 6. "Was It A Rat I Saw" returns true
- 7. "Never Odd or Even" returns true
- 8. "Never Odd or Even1" returns false 
- 9. "1Never Odd or Even1" returns true
- * 
- */
 
 describe('palindrome checker', () => {
     let palindrome: Palindrome;
@@ -30,6 +23,7 @@ describe('palindrome checker', () => {
 
      it.each([
         {input: "Momx", expected: false},
+        {input: "Never Odd or Even1", expected: false},
     ])('should return false if input is not a palindrome', ({input, expected}) => {
         expect(palindrome.checker(input)).toBe(expected);
     });
