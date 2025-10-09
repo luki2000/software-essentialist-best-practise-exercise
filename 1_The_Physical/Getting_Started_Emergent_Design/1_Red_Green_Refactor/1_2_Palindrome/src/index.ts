@@ -1,8 +1,8 @@
 export class Palindrome {
     checker(text: string): boolean | undefined {
-        const originalText = text;
-        const reversedText = text.split("").reverse().join("");
-        
+        const originalText = text.toLowerCase();
+        const reversedText = text.split("").reverse().join("").toLowerCase();
+
         return originalText === reversedText;
     }
 }
