@@ -22,4 +22,9 @@ describe('palindrome checker', () => {
         const palindrome = new Palindrome();
         expect(palindrome.checker("mom")).toBe(true)
     });
+
+    it('should Mom string and return true', () => {
+        const palindrome = new Palindrome();
+        expect(palindrome.checker("Mom")).toBe(true)
+    });
 });
