@@ -15,6 +15,6 @@ import { Palindrome } from './index';
 describe('palindrome checker', () => {
     it('should take string and return string', () => {
         const palindrome = new Palindrome();
-        expect(palindrome.checker("")).toBe("")
+        expect(palindrome.checker("")).toBe(true)
     });
 });
