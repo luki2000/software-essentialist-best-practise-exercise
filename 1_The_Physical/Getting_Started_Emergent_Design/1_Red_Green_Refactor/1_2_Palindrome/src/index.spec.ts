@@ -13,18 +13,19 @@ import { Palindrome } from './index';
  */
 
 describe('palindrome checker', () => {
+    let palindrome: Palindrome;
+
+    beforeEach(() => {
+        palindrome = new Palindrome();
+    });
     it('should take string and return boolean', () => {
-        const palindrome = new Palindrome();
         expect(typeof palindrome.checker("")).toBe("boolean")
     });
 
-    it('should mom string and return true', () => {
-        const palindrome = new Palindrome();
+    it.each([
+        {input: "mom", result: true },
+        {input: "Mom", result: true },
+    ])('should return true if input is palindrome', () => {
         expect(palindrome.checker("mom")).toBe(true)
-    });
-
-    it('should Mom string and return true', () => {
-        const palindrome = new Palindrome();
-        expect(palindrome.checker("Mom")).toBe(true)
     });
 });
