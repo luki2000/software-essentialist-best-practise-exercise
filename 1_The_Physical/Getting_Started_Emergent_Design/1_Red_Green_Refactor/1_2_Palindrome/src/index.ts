@@ -1,5 +1,5 @@
 export class Palindrome {
     checker(text: string) {
-        return true;
+        return false;
     }
 }

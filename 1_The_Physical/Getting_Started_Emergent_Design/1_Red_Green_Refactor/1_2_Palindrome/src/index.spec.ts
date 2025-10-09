@@ -13,8 +13,13 @@ import { Palindrome } from './index';
  */
 
 describe('palindrome checker', () => {
-    it('should take string and return true', () => {
+    it('should take string and return boolean', () => {
         const palindrome = new Palindrome();
-        expect(palindrome.checker("")).toBe(true)
+        expect(typeof palindrome.checker("")).toBe("boolean")
+    });
+
+    it('should mom string and return true', () => {
+        const palindrome = new Palindrome();
+        expect(palindrome.checker("mom")).toBe(true)
     });
 });
