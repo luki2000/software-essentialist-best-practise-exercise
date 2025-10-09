@@ -28,4 +28,10 @@ describe('palindrome checker', () => {
     ])('should return true if input is palindrome', () => {
         expect(palindrome.checker("mom")).toBe(true)
     });
+
+     it.each([
+        {input: "Momx", result: false },
+    ])('should return false if input is not a palindrome', () => {
+        expect(palindrome.checker("Momx")).toBe(false)
+    });
 });
