@@ -13,7 +13,7 @@ import { Palindrome } from './index';
  */
 
 describe('palindrome checker', () => {
-    it('should take string and return string', () => {
+    it('should take string and return true', () => {
         const palindrome = new Palindrome();
         expect(palindrome.checker("")).toBe(true)
     });
