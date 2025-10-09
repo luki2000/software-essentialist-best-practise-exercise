@@ -13,6 +13,7 @@ describe('palindrome checker', () => {
     beforeEach(() => {
         palindrome = new Palindrome();
     });
+
     it('should take string and return boolean', () => {
         expect(typeof palindrome.checker("")).toBe("boolean")
     });
