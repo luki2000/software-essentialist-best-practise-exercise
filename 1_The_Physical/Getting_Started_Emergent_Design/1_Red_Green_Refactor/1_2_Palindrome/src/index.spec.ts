@@ -13,8 +13,8 @@ import { Palindrome } from './index';
  */
 
 describe('palindrome checker', () => {
-    it('should take the text and return text', () => {
+    it('should take string and return string', () => {
         const palindrome = new Palindrome();
-        expect(palindrome.checker("random")).toBe("")
+        expect(palindrome.checker("")).toBe("")
     });
 });
