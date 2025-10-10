@@ -1,4 +1,4 @@
-import {ValidationError} from './index'
+import {ValidationError, Password} from './index'
 /**
  * 
 - Between 5 and 15 characters long
@@ -11,6 +11,10 @@ import {ValidationError} from './index'
  */
 
 describe('password validator', () => {
+  let password: Password;
+  beforeEach(() => {
+    password = new Password();
+  });
 
   test('hello', () => {
     expect("between 5 and 15").toContain('5 and 15')
@@ -19,29 +23,16 @@ describe('password validator', () => {
 
 
   describe('validation error', () => {
-    test('should be returned for missing digit', () => {
-      // Arrange
-      let error: ValidationError = {
-        result: true,
+    test('should return object with missing digit message', () => {
+      expect(password.validate('Angel')).toEqual({
+        result: false,
         errors: [
-          {
-            type: 'missing_digit',
-            message: 'must contain at least one digit'
-          },
+            {
+              type: 'missing_digit',
+              message: 'must contain at least one digit',
+            },
         ]
-      };
-      // Act
-
-      // Assert
-      expect(error).toEqual({
-        result: error.result,
-        errors: [
-          {
-            type: error.errors[0].type,
-            message: error.errors[0].message,
-          }
-        ],
-      });
+        });
     });
   });
 
