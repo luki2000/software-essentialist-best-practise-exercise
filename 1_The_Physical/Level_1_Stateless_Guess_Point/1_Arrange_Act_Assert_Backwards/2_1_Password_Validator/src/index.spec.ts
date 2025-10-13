@@ -27,7 +27,7 @@ describe('password validator', () => {
       let result: string;
       
       // act
-      result = password.validate(input).errors.filter(error =>  error.type === 'missing_digit')[0]?.message;
+      result = password.validate(input).errors.filter(error =>  error.type === 'missing_one_digit')[0]?.message;
 
       // assert
       expect(result).toBe(expected);
@@ -41,6 +41,19 @@ describe('password validator', () => {
       
       // act
       result = password.validate(input).errors.filter(error =>  error.type === 'out_of_bound')[0]?.message;
+
+      // assert
+      expect(result).toBe(expected);
+    });
+
+    test('if there is no capital letters it should return message that it is missing capital letter', () => {
+      // arrange
+      const input = 'nzel1';
+      let expected = 'must contain a capital letter';
+      let result: string;
+      
+      // act
+      result = password.validate(input).errors.filter(error =>  error.type === 'missing_one_capital')[0]?.message;
 
       // assert
       expect(result).toBe(expected);
