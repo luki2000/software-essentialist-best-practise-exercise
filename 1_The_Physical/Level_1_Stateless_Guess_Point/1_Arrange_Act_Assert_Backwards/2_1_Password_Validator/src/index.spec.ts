@@ -1,4 +1,4 @@
-import {Password, PasswordError} from './index'
+import {Password, PasswordError, ValidationError} from './index'
 
 describe('password validator', () => {
   let password: Password;
@@ -17,6 +17,19 @@ describe('password validator', () => {
 
       // assert
       expect(result.length).toBeTruthy();
+  });
+
+  test('when all password requirement are met the result in validation error object should be false for no errors', () => {
+    // arrange
+      let input = 'Angel1';
+
+      let result: ValidationError;
+      
+      // act
+      result = password.validate(input);
+
+      // assert
+      expect(result.result).toBeFalsy();
   });
 
   describe('error message', () => {
