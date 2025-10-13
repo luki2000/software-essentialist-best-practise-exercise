@@ -1,9 +1,22 @@
-import {Password} from './index'
+import {Password, PasswordError} from './index'
 
 describe('password validator', () => {
   let password: Password;
   beforeEach(() => {
     password = new Password();
+  });
+
+  test('can have multiple errors', () => {
+    // arrange
+      let input = 'ngel';
+
+      let result: Array<PasswordError>;
+      
+      // act
+      result = password.validate(input).errors;
+
+      // assert
+      expect(result.length).toBeTruthy();
   });
 
   describe('error message', () => {
