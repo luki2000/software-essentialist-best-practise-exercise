@@ -7,70 +7,34 @@ describe('password validator', () => {
   });
 
   test('if more than one passwword criteria fails return multiple errors, ', () => {
-    // arrange
       let input = 'ngel';
 
       let result: Array<PasswordError>;
       
-      // act
       result = password.validate(input).errors;
 
-      // assert
       expect(result.length).toBeTruthy();
   });
 
   test('when all password requirement are met the result in validation error object should be true for no errors', () => {
-    // arrange
       let input = 'Angel1';
-
       let result: ValidationError;
       
-      // act
       result = password.validate(input);
 
-      // assert
       expect(result.result).toBeTruthy();
   });
 
-  describe('error message', () => {
-    test('if there is no digit within input it should return message missing digit message', () => {
-      // arrange
-      let input = 'Angel';
-      let expected = 'must contain at least one digit';
-      let result: string;
+  test.each([
+    {input: 'Angel', errorType: 'atleast_one_digit', expected: 'must contain at least one digit'},
+    {input: 'nGel', errorType: 'out_of_bound', expected: 'be between 5 and 15 characters long'},
+    {input: 'nzel1', errorType: 'atleast_one_capital', expected: 'must contain a capital letter'}
+  ])('it should return the right error message of the corresponding missing password criteria', ({ input, errorType, expected}) => {
+    let result: string;
       
-      // act
-      result = password.validate(input).errors.filter(error =>  error.type === 'atleast_one_digit')[0]?.message;
+    result = password.validate(input).errors.filter(error =>  error.type === errorType)[0]?.message;
 
-      // assert
-      expect(result).toBe(expected);
-    });
-
-    test('if there is less than 5 characters it should return message that it has to be between 5 and 15 characters long', () => {
-      // arrange
-      const input = 'nGel';
-      let expected = 'be between 5 and 15 characters long';
-      let result: string;
-      
-      // act
-      result = password.validate(input).errors.filter(error =>  error.type === 'out_of_bound')[0]?.message;
-
-      // assert
-      expect(result).toBe(expected);
-    });
-
-    test('if there is no capital letters it should return message that it is missing capital letter', () => {
-      // arrange
-      const input = 'nzel1';
-      let expected = 'must contain a capital letter';
-      let result: string;
-      
-      // act
-      result = password.validate(input).errors.filter(error =>  error.type === 'atleast_one_capital')[0]?.message;
-
-      // assert
-      expect(result).toBe(expected);
-    });
-  });
+    expect(result).toBe(expected);
+  })
 
 });
