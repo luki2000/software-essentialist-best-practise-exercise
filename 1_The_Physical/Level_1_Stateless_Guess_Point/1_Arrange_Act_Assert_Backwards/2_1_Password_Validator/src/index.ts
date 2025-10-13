@@ -3,14 +3,9 @@ export interface PasswordError {
     message: string; // corresponding message of error type
 }
 export interface ValidationError {
-    result: boolean; // tells us if password is valid true = valid
+    result: boolean; // tells us if password is valid true = at least one error present
     errors: Array<PasswordError>; // list of errors
 }
-
-
-// we now know that we need some method that validates
-// the passwords format and will return an error object
-// if one of the criteria is wrong
 
 export class Password {
     public validate(text: string): ValidationError {
@@ -39,7 +34,6 @@ export class Password {
             errors: [...errorMessages]
         };    
     }
-
 
     private textLengthOutOfBounds(str: string): boolean {
         return str.length < 5 || str.length > 10;
