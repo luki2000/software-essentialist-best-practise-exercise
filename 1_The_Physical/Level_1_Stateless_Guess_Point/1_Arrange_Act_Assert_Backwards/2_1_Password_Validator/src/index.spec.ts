@@ -1,3 +1,4 @@
+import { error } from 'console';
 import {ValidationError, Password} from './index'
 /**
  * 
@@ -26,7 +27,7 @@ describe('password validator', () => {
       let result: string;
       
       // act
-      result = password.validate(input).errors[0].message;
+      result = password.validate(input).errors.filter(error =>  error.type === 'missing_digit')[0]?.message;
 
       // assert
       expect(result).toBe(expected);
@@ -39,7 +40,7 @@ describe('password validator', () => {
       let result: string;
       
       // act
-      result = password.validate(input).errors[0].message;
+      result = password.validate(input).errors.filter(error =>  error.type === 'out_of_bound')[0]?.message;
 
       // assert
       expect(result).toBe(expected);
