@@ -1,22 +1,9 @@
-import { error } from 'console';
-import {ValidationError, Password} from './index'
-/**
- * 
-- Contains at least one upper case letter
-- Return an object containing a boolean result and an errors key that — when 
-  provided with an invalid password — contains an error message or type for 
-  all errors in occurrence. There can be multiple errors at a single time.
- * 
- */
+import {Password} from './index'
 
 describe('password validator', () => {
   let password: Password;
   beforeEach(() => {
     password = new Password();
-  });
-
-  test('hello', () => {
-    expect("between 5 and 15").toContain('5 and 15')
   });
 
   describe('error message', () => {
@@ -27,7 +14,7 @@ describe('password validator', () => {
       let result: string;
       
       // act
-      result = password.validate(input).errors.filter(error =>  error.type === 'missing_one_digit')[0]?.message;
+      result = password.validate(input).errors.filter(error =>  error.type === 'atleast_one_digit')[0]?.message;
 
       // assert
       expect(result).toBe(expected);
@@ -53,7 +40,7 @@ describe('password validator', () => {
       let result: string;
       
       // act
-      result = password.validate(input).errors.filter(error =>  error.type === 'missing_one_capital')[0]?.message;
+      result = password.validate(input).errors.filter(error =>  error.type === 'atleast_one_capital')[0]?.message;
 
       // assert
       expect(result).toBe(expected);
