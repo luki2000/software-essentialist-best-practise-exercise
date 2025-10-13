@@ -19,10 +19,9 @@ export class Password {
         const outOfBound = this.textLengthOutOfBounds(text);
         const hasAtleastOneDigit = this.hasDigit(text);
         const hasAtleastOneCapital = this.hasCapitalLetter(text);
-
         
         if(!hasAtleastOneDigit) {
-            errorMessages.push( { type: 'atleast_one_digit', message: 'must contain at least one digit'});
+            errorMessages.push( {type: 'atleast_one_digit', message: 'must contain at least one digit'});
         }
 
         if(outOfBound) {
@@ -46,11 +45,11 @@ export class Password {
         return str.length < 5 || str.length > 10;
     }
     
-    private hasCapitalLetter(str: string) {
+    private hasCapitalLetter(str: string): boolean {
         return /[A-Z]/.test(str);
     }
 
-    private hasDigit(str: string) {
+    private hasDigit(str: string): boolean {
         return /\d/.test(str);
     }
 }
