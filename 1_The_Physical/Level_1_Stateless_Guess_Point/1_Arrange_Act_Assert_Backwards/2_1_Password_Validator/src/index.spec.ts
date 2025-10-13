@@ -6,7 +6,7 @@ describe('password validator', () => {
     password = new Password();
   });
 
-  test('can have multiple errors', () => {
+  test('if more than one passwword criteria fails return multiple errors, ', () => {
     // arrange
       let input = 'ngel';
 
@@ -19,7 +19,7 @@ describe('password validator', () => {
       expect(result.length).toBeTruthy();
   });
 
-  test('when all password requirement are met the result in validation error object should be false for no errors', () => {
+  test('when all password requirement are met the result in validation error object should be true for no errors', () => {
     // arrange
       let input = 'Angel1';
 
@@ -29,7 +29,7 @@ describe('password validator', () => {
       result = password.validate(input);
 
       // assert
-      expect(result.result).toBeFalsy();
+      expect(result.result).toBeTruthy();
   });
 
   describe('error message', () => {

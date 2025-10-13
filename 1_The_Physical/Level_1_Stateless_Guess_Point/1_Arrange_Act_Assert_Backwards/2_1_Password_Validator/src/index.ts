@@ -15,7 +15,7 @@ export interface ValidationError {
 export class Password {
     public validate(text: string): ValidationError {
         const errorMessages = [];
-        let hasError = false;
+        let hasNoError = true;
         const outOfBound = this.textLengthOutOfBounds(text);
         const hasAtleastOneDigit = this.hasDigit(text);
         const hasAtleastOneCapital = this.hasCapitalLetter(text);
@@ -33,10 +33,10 @@ export class Password {
             errorMessages.push({type: 'atleast_one_capital', message: 'must contain a capital letter'});
         }
 
-        hasError = errorMessages.length > 0;
+        hasNoError = errorMessages.length === 0;
     
         return {
-            result: hasError,
+            result: hasNoError,
             errors: [...errorMessages]
         };    
     }
