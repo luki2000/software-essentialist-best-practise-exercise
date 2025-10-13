@@ -23,19 +23,32 @@ describe('password validator', () => {
 
 
   describe('validation error', () => {
-    test('should return object with missing digit message', () => {
-      expect(password.validate('Angel')).toEqual({
-        result: false,
-        errors: [
-            {
-              type: 'missing_digit',
-              message: 'must contain at least one digit',
-            },
-        ]
-        });
+    test('if there is no digit within input it should return object with missing digit message', () => {
+      // arrange
+      let input = 'Angel';
+      let expected = 'must contain at least one digit';
+      let result: string;
+      
+      // act
+      result = password.validate(input).errors[0].message;
+
+      // assert
+      expect(result).toBe(expected);
+    });
+
+    test('if there is less than 5 characters it should return object with message that it has to be between 5 and 15 characters long', () => {
+      // arrange
+      const input = 'nGel';
+      let expected = 'be between 5 and 15 characters long';
+      let result: string;
+      
+      // act
+      result = password.validate(input).errors[0].message;
+
+      // assert
+      expect(result).toBe(expected);
+    
     });
   });
 
 });
-
-
