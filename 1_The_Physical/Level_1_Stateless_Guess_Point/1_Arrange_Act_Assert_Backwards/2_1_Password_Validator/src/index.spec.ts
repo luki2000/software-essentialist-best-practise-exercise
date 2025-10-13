@@ -35,6 +35,18 @@ describe('password validator', () => {
     result = password.validate(input).errors.filter(error =>  error.type === errorType)[0]?.message;
 
     expect(result).toBe(expected);
-  })
+  });
+
+  test.each([
+    {input: 'maxwell1_c'},
+    {input: 'maxwellTheBe'},
+    {input: 'thePhysical1234567'}
+  ])('result of validation error should return false for errors due to input not following password criteria', ({input}) => {
+    let result: boolean;
+      
+    result = password.validate(input).result;
+
+    expect(result).toBeFalsy();
+  });
 
 });
