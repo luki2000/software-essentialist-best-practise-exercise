@@ -1,3 +1,5 @@
+import { findMaxNumber } from './index';
+
 /**
  * 
  * 
@@ -21,5 +23,11 @@
 
 describe('stats calculator', () => {
 
+    it('finds the maximum number from an array of numbers', () => {
 
-})
+        let result = findMaxNumber([2,3,5,-1,8])
+        
+        expect(result).toBe(8);
+    });
+
+});
