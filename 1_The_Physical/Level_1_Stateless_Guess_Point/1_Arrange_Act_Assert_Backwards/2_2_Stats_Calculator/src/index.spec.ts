@@ -25,7 +25,7 @@ describe('stats calculator', () => {
 
     it('finds the maximum number from an array of numbers', () => {
 
-        let result = findMaxNumber([2,3,5,-1,8])
+        let result = findMaxNumber([2,3,8,-1,5])
         
         expect(result).toBe(8);
     });
