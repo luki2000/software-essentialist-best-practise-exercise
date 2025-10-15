@@ -52,5 +52,6 @@ export function calculateAverage(arr: Array<number>): number {
     for (const element of arr) {
         total += element;
     }
-    return (total / findArrLength(arr));
+    const avg = total / findArrLength(arr);
+    return Number(avg.toFixed(12));
 }
