@@ -19,3 +19,7 @@ export function findMinNumber(arr: Array<number>): number | null {
 
     return maxNumber;
 }
+
+export function findArrLength(arr: Array<number>): number | null {
+    return 0;
+}
