@@ -21,5 +21,5 @@ export function findMinNumber(arr: Array<number>): number | null {
 }
 
 export function findArrLength(arr: Array<number>): number | null {
-    return 0;
+    return arr.length;
 }
