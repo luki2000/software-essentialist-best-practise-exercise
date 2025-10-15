@@ -1,3 +1,26 @@
+
+interface Stats {
+    minimumValue: number | null;
+    maximumValue: number | null;
+    numberOfElements: number;
+    averageValue: number;
+}
+
+
+export class Calculator {
+    public static retrieveStats(arr: Array<number>): Stats {
+        return {
+            minimumValue: findMinNumber(arr),
+            maximumValue: findMaxNumber(arr),
+            numberOfElements: findArrLength(arr),
+            averageValue: calculateAverage(arr)
+        }
+    }
+}
+
+
+
+
 export function findMaxNumber(arr: Array<number>): number | null {
     let firstElement = arr[0];
     let maxNumber = firstElement;
@@ -29,5 +52,5 @@ export function calculateAverage(arr: Array<number>): number {
     for (const element of arr) {
         total += element;
     }
-    return total / findArrLength(arr);
+    return (total / findArrLength(arr));
 }
