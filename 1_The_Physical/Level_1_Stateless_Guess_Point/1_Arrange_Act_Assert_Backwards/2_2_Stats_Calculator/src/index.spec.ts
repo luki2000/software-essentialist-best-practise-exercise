@@ -1,4 +1,4 @@
-import { findMaxNumber, findMinNumber, findArrLength } from './index';
+import { findMaxNumber, findMinNumber, findArrLength, calculateAverage } from './index';
 
 /**
  * 
@@ -13,7 +13,6 @@ import { findMaxNumber, findMinNumber, findArrLength } from './index';
  * input: an array of numbers
  * output: an object wih calc stats 
  * responsabilities
- * 3. calc number of elements
  * 4. calc average value
  * 
  */
@@ -38,6 +37,13 @@ describe('stats calculator', () => {
          it('finds the number of elements in the array', () => {
             let result = findArrLength([2,3,8,-1,5])
             expect(result).toBe(5);
+        });
+    });
+
+     describe('calculateAverage', () => {
+         it('calculates the average of the elements in the array', () => {
+            let result = calculateAverage([2,3,8,-1,5])
+            expect(result).toBe(3.4);
         });
     });
 

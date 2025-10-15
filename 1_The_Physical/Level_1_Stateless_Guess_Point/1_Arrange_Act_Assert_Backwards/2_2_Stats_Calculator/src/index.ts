@@ -20,6 +20,10 @@ export function findMinNumber(arr: Array<number>): number | null {
     return maxNumber;
 }
 
-export function findArrLength(arr: Array<number>): number | null {
+export function findArrLength(arr: Array<number>): number {
     return arr.length;
+}
+
+export function calculateAverage(arr: Array<number>): number {
+    return 0;
 }
