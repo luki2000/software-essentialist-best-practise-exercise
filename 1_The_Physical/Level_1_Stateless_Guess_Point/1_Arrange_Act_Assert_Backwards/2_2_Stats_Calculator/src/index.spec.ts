@@ -1,38 +1,21 @@
-import { findMaxNumber, findMinNumber, findArrLength, calculateAverage, Calculator } from './index';
+import { Calculator } from './index';
 
 describe('stats calculator', () => {
-    it('returns an object with the correct stats of an array', () => {
-        expect(Calculator.retrieveStats([2, 4, 21, -8, 53, 40])).toStrictEqual({
+    it.each([
+        {input: [2, 4, 21, -8, 53, 40], expected: {
             minimumValue: -8,
             maximumValue: 53,
             numberOfElements: 6,
             averageValue: 18.666666666667,
-        });
-    });
-});
-describe('findMaxNumber', () => {
-    it('finds the maximum number from an array of numbers', () => {
-        let result = findMaxNumber([2,3,8,-1,5])
-        expect(result).toBe(8);
-    });
-});
-describe('findMinNumber', () => {
-    it('finds the maximum number from an array of numbers', () => {
-        let result = findMinNumber([2,3,8,-1,5])
-        expect(result).toBe(-1);
+        }},
+        {input: [9, 4, 63, -10, 12, 10], expected: {
+            minimumValue: -10,
+            maximumValue: 63,
+            numberOfElements: 6,
+            averageValue: 14.666666666667,
+        }},
+    ])('adding an array of numbers as an input will return an object with the arrays maximum value, minimum value, number of elements and average value', ({input, expected}) => {
+        expect(Calculator.retrieveStats(input)).toStrictEqual(expected);
     });
 });
 
-describe('findArrLength', () => {
-        it('finds the number of elements in the array', () => {
-        let result = findArrLength([2,3,8,-1,5])
-        expect(result).toBe(5);
-    });
-});
-
-describe('calculateAverage', () => {
-    it('calculates the average of the elements in the array', () => {
-        let result = calculateAverage([2,3,8,-1,5])
-        expect(result).toBe(3.4);
-    });
-});
