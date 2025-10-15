@@ -1,4 +1,4 @@
-import { findMaxNumber } from './index';
+import { findMaxNumber, findMinNumber } from './index';
 
 /**
  * 
@@ -14,7 +14,6 @@ import { findMaxNumber } from './index';
  * output: an object wih calc stats 
  * responsabilities
  * 1. find minimum value
- * 2. find maximum value
  * 3. calc number of elements
  * 4. calc average value
  * 
@@ -23,11 +22,17 @@ import { findMaxNumber } from './index';
 
 describe('stats calculator', () => {
 
-    it('finds the maximum number from an array of numbers', () => {
-
-        let result = findMaxNumber([2,3,8,-1,5])
-        
-        expect(result).toBe(8);
+    describe('findMaxNumber', () => {
+        it('finds the maximum number from an array of numbers', () => {
+            let result = findMaxNumber([2,3,8,-1,5])
+            expect(result).toBe(8);
+        });
+    });
+    describe('findMinNumber', () => {
+        it('finds the maximum number from an array of numbers', () => {
+            let result = findMinNumber([2,3,8,-1,5])
+            expect(result).toBe(-1);
+        });
     });
 
 });
