@@ -25,5 +25,9 @@ export function findArrLength(arr: Array<number>): number {
 }
 
 export function calculateAverage(arr: Array<number>): number {
-    return 0;
+    let total = 0;
+    for (const element of arr) {
+        total += element;
+    }
+    return total / findArrLength(arr);
 }
