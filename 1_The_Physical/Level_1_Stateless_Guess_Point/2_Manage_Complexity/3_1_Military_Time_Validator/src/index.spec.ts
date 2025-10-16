@@ -7,7 +7,7 @@ describe('military time validator', () => {
         { input: "22:00 - 23:12", expected : true },
         { input: "60:00 - 23:90", expected : false },
         { input: "00:00 - 23:59", expected : true },
-    ])('should know if $input is $expected as valid military time', () => {
+    ])('should know if $input is $expected as a valid military time', () => {
         expect(validateMilitaryTime("25:00 - 12:23")).toBeFalsy();
     });
 
