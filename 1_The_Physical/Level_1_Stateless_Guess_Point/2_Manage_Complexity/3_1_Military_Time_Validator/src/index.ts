@@ -12,19 +12,17 @@ export function validateMilitaryTime(militaryTime: string) {
     const toTimeHour = toTimeSplit[0];
     const toTimeMinute = toTimeSplit[1];
     const isToTimeValid = isValidHour(toTimeHour) && isValidMinute(toTimeMinute);
-    
+
     return isFromTimeValid && isToTimeValid;
 }
 
 
-function isValidHour(hour: string) {
-    const numberfied = Number(hour);
-
-    return numberfied >= 0 && numberfied <= 23; 
+function isValidHour(h: string) {
+    const hour = Number(h);
+    return hour >= 0 && hour <= 23; 
 }
 
-function isValidMinute(minute: string) {
-    const minutefied = Number(minute);
-
-    return minutefied >= 0 && minutefied <= 59; 
+function isValidMinute(m: string) {
+    const minute = Number(m);
+    return minute >= 0 && minute <= 59; 
 }
