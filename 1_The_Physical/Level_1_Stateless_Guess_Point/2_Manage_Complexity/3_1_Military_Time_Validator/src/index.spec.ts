@@ -19,7 +19,6 @@ import { validateMilitaryTime } from './index';
 describe('military time validator', () => {
 
 
-
     it('should know that "01:12 - 12:32" is valid military time', () => {
         expect(validateMilitaryTime("01:12 - 12:32")).toBeTruthy();
     });
