@@ -1,3 +1,5 @@
+import { validateMilitaryTime } from './index';
+
 // Description: Write a function (or a stateless class) capable of validating whether a string time range is a 
 // valid military time range or not.
 
@@ -17,4 +19,8 @@
 describe('military time validator', () => {
 
 
-})
+
+    it('should know that "01:12 - 12:32" is valid military time', () => {
+        expect(validateMilitaryTime("01:12 - 12:32")).toBeTruthy();
+    });
+});
