@@ -32,6 +32,13 @@ function validateSingleTime(time: string) {
 function isValidRange(from: string, to: string) {
     const fromHour =  Number(from.split(":")[0]);
     const toHour = Number(to.split(":")[0]);
+    const fromMinute =  Number(from.split(":")[1]);
+    const toMinute = Number(to.split(":")[1]);
+
+    if(fromHour === toHour && fromMinute >= toMinute) {
+            return false;
+    }
+    
 
     return toHour >= fromHour;
 }
