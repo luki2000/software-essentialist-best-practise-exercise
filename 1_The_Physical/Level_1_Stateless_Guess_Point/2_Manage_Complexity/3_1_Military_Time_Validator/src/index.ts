@@ -8,7 +8,7 @@ export function validateMilitaryTime(militaryTime: string) {
 
 
 function isValidHour(hour: number) {
-    return hour >= 0 && hour <= 23; 
+    return hour >= 0 && hour <= 24; 
 }
 
 function isValidMinute(minute: number) {
