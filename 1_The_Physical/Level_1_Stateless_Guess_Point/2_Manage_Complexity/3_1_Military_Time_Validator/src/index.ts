@@ -2,13 +2,17 @@ export function validateMilitaryTime(militaryTime: string) {
     const splitMilitaryTime = militaryTime.split(" - ");
     const fromTime = splitMilitaryTime[0];
     const toTime = splitMilitaryTime[1];
+    
+    if(!isValidRange(fromTime, toTime)) {
+        return false;
+    }
 
     return validateSingleTime(fromTime) && validateSingleTime(toTime);
 }
 
 
 function isValidHour(hour: number) {
-    return hour >= 0 && hour <= 24; 
+    return hour >= 0 && hour <= 23; 
 }
 
 function isValidMinute(minute: number) {
@@ -22,4 +26,12 @@ function validateSingleTime(time: string) {
     const minute = Number(splitTime[1]);
 
     return isValidHour(hour) && isValidMinute(minute);
+}
+
+
+function isValidRange(from: string, to: string) {
+    const fromHour =  Number(from.split(":")[0]);
+    const toHour = Number(to.split(":")[0]);
+
+    return toHour >= fromHour;
 }
