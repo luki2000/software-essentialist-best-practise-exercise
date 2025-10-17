@@ -15,4 +15,11 @@ describe('military time validator', () => {
         expect(validateMilitaryTime("23:00 - 15:30")).toBeFalsy();
     });
 
+    it.each([
+        { input: "22:00 - 22:00", expected : false },
+        { input: "22:50 - 23:30", expected : false },
+    ])('should know that start time minutes needs to be greater than end time minutes if range is within the same hour',({input, expected}) => {
+        expect(validateMilitaryTime(input)).toBe(expected);
+    });
+
 });
