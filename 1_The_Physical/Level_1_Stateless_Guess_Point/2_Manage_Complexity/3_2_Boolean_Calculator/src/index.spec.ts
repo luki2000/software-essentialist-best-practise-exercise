@@ -6,4 +6,8 @@ describe('boolean calculator', () => {
     it('TRUE as input should return true', () => {
         expect(booleanCalculator.evaluate("TRUE")).toBeTruthy();
     });
+
+    it('FALSE as input should return false', () => {
+        expect(booleanCalculator.evaluate("FALSE")).toBeFalsy();
+    });
 });
