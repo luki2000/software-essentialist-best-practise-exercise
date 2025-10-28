@@ -10,4 +10,8 @@ describe('boolean calculator', () => {
     it('FALSE as input should return false', () => {
         expect(booleanCalculator.evaluate("FALSE")).toBeFalsy();
     });
+
+    it('NOT FALSE as input should return true', () => {
+        expect(booleanCalculator.evaluate("NOT FALSE")).toBeTruthy();
+    });
 });
