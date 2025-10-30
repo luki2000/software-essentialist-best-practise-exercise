@@ -3,31 +3,26 @@ import { BooleanCalculator } from './index';
 describe('boolean calculator', () => {
     const booleanCalculator = new BooleanCalculator()
 
-    it('TRUE as input should return true', () => {
-        expect(booleanCalculator.evaluate("TRUE")).toBeTruthy();
+    it.each([
+        {input: 'TRUE', expected: true},
+        {input: 'FALSE', expected: false}    
+    ])('When $input is evaluated it should return $expected', ({input, expected}) => {
+        expect(booleanCalculator.evaluate(input)).toBe(expected);
     });
 
-    it('FALSE as input should return false', () => {
-        expect(booleanCalculator.evaluate("FALSE")).toBeFalsy();
+    it.each([
+        {input: 'NOT FALSE', expected: true},
+        {input: 'NOT TRUE', expected: false}    
+    ])('When $input is evaluated it should return $expected', ({input, expected}) => {
+        expect(booleanCalculator.evaluate(input)).toBe(expected);
     });
 
-    it('NOT FALSE as input should return true', () => {
-        expect(booleanCalculator.evaluate("NOT FALSE")).toBeTruthy();
-    });
-
-    it('NOT TRUE as input should return false', () => {
-        expect(booleanCalculator.evaluate("NOT TRUE")).toBeFalsy();
-    });
-
-    it('TRUE AND FALSE as input should return false', () => {
-        expect(booleanCalculator.evaluate("TRUE AND FALSE")).toBeFalsy();
-    });
-
-    it('TRUE AND TRUE as input should return true', () => {
-        expect(booleanCalculator.evaluate("TRUE AND TRUE")).toBeTruthy();
-    });
-
-    it('FALSE AND FALSE as input should return false', () => {
-        expect(booleanCalculator.evaluate("FALSE AND FALSE")).toBeFalsy();
+    it.each([
+        {input: 'TRUE AND FALSE', expected: false},
+        {input: 'FALSE AND TRUE', expected: false},
+        {input: 'TRUE AND TRUE', expected: true},
+        {input: 'FALSE AND FALSE', expected: false}    
+    ])('When $input is evaluated it should return $expected', ({input, expected}) => {
+        expect(booleanCalculator.evaluate(input)).toBe(expected);
     });
 });
