@@ -19,7 +19,15 @@ describe('boolean calculator', () => {
         expect(booleanCalculator.evaluate("NOT TRUE")).toBeFalsy();
     });
 
-    it('TRUE && FALSE as input should return false', () => {
-        expect(booleanCalculator.evaluate("TRUE && FALSE")).toBeFalsy();
+    it('TRUE AND FALSE as input should return false', () => {
+        expect(booleanCalculator.evaluate("TRUE AND FALSE")).toBeFalsy();
+    });
+
+    it('TRUE AND TRUE as input should return true', () => {
+        expect(booleanCalculator.evaluate("TRUE AND TRUE")).toBeTruthy();
+    });
+
+    it('FALSE AND FALSE as input should return false', () => {
+        expect(booleanCalculator.evaluate("FALSE AND FALSE")).toBeFalsy();
     });
 });
