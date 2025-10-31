@@ -17,11 +17,14 @@ export class BooleanCalculator {
             const orOccurence = tokens.filter(w => w === "OR").length;
             for(let i= 0; i < orOccurence; i++) {
                 const orOperatorIndex = tokens.indexOf('OR');
-                const leftHandSide = tokens[orOperatorIndex-1];
-                const rightHandSide = tokens[orOperatorIndex+1];
+                const leftHandSideIndex = orOperatorIndex-1;
+                const rightHandSideIndex = orOperatorIndex+1;
+                const leftHandSide = tokens[leftHandSideIndex];
+                const rightHandSide = tokens[rightHandSideIndex];
 
                 const result = (leftHandSide === "TRUE" || rightHandSide === "TRUE") ? "TRUE" : "FALSE";
-                tokens.splice(0, 3, result);
+                tokens.splice(leftHandSideIndex, 3, result);
+                console.log(tokens)
             }
         }
 
@@ -31,11 +34,13 @@ export class BooleanCalculator {
 
              for(let i= 0; i < andOccurence; i++) {
                 const andOperatorIndex = tokens.indexOf('AND');
-                const leftHandSide = tokens[andOperatorIndex-1];
-                const rightHandSide = tokens[andOperatorIndex+1];
+                const leftHandSideIndex = andOperatorIndex-1;
+                const rightHandSideIndex = andOperatorIndex+1;
+                const leftHandSide = tokens[leftHandSideIndex];
+                const rightHandSide = tokens[rightHandSideIndex];
 
                 const result = (leftHandSide === "TRUE" && rightHandSide === "TRUE") ? "TRUE" : "FALSE";
-                tokens.splice(0, 3, result);
+                tokens.splice(leftHandSideIndex, 3, result);
             }
         }
 
