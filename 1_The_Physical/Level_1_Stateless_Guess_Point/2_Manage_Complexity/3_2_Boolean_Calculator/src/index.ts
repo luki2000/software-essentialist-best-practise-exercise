@@ -12,20 +12,34 @@ export class BooleanCalculator {
             if(str === "FALSE") return false;
         }
 
+        const hasOrOperator = tokens.find((token) => token === "OR");
+        if(hasOrOperator) {
+            const orOccurence = tokens.filter(w => w === "OR").length;
+            for(let i= 0; i < orOccurence; i++) {
+                const orOperatorIndex = tokens.indexOf('OR');
+                const leftHandSide = tokens[orOperatorIndex-1];
+                const rightHandSide = tokens[orOperatorIndex+1];
 
-        const hasAndOperator = tokens.find((token) => token === "AND");
-        if(hasAndOperator) {
-            const andOperatorIndex = tokens.indexOf('AND');
-            const leftHandSide = tokens[andOperatorIndex-1];
-            const rightHandSide = tokens[andOperatorIndex+1];
-
-            if(leftHandSide === "TRUE" && rightHandSide === "TRUE") {
-                return true;
-            } else {
-                return false;
+                const result = (leftHandSide === "TRUE" || rightHandSide === "TRUE") ? "TRUE" : "FALSE";
+                tokens.splice(0, 3, result);
             }
         }
 
-        throw Error("not implmemented");
+        const hasAndOperator = tokens.find((token) => token === "AND");
+        if(hasAndOperator) {
+            const andOccurence = tokens.filter(w => w === "AND").length;
+
+             for(let i= 0; i < andOccurence; i++) {
+                const andOperatorIndex = tokens.indexOf('AND');
+                const leftHandSide = tokens[andOperatorIndex-1];
+                const rightHandSide = tokens[andOperatorIndex+1];
+
+                const result = (leftHandSide === "TRUE" && rightHandSide === "TRUE") ? "TRUE" : "FALSE";
+                tokens.splice(0, 3, result);
+            }
+        }
+
+        if(tokens[0] === "TRUE") return true;
+        if(tokens[0] === "FALSE") return false; 
     }
 }

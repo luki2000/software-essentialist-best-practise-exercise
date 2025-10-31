@@ -21,7 +21,7 @@ describe('boolean calculator', () => {
         {input: 'TRUE AND FALSE', expected: false},
         {input: 'FALSE AND TRUE', expected: false},
         {input: 'TRUE AND TRUE', expected: true},
-        {input: 'FALSE AND FALSE', expected: false}    
+        {input: 'FALSE AND FALSE', expected: false}  
     ])('When $input is evaluated it should return $expected', ({input, expected}) => {
         expect(booleanCalculator.evaluate(input)).toBe(expected);
     });
