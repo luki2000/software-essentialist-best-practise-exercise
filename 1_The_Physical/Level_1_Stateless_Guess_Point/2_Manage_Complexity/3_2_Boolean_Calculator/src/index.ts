@@ -2,14 +2,22 @@ export class BooleanCalculator {
     evaluate(str: string) {
         let tokens = str.split(" ");
 
-        if(tokens.length <= 2) {
-            const hasNotOperator = tokens.find((token) => token === "NOT");
-            if(hasNotOperator) {
-                if(tokens[1] === "TRUE") return false;
-                if(tokens[1] === "FALSE") return true;
-            }
+        if(tokens.length === 1) {
             if(str === "TRUE") return true;
             if(str === "FALSE") return false;
+        }
+
+        const hasNOTOperator = tokens.find((token) => token === "NOT");
+        if(hasNOTOperator) {
+            const notOccurence = tokens.filter(w => w === "NOT").length;
+            for(let i= 0; i < notOccurence; i++) {
+                const notOperatorIndex = tokens.indexOf('NOT');
+                const rightHandSideIndex = notOperatorIndex+1;
+                const rightHandSide = tokens[rightHandSideIndex];
+
+                const result = (rightHandSide === "TRUE") ? "FALSE" : "TRUE";
+                tokens.splice(notOperatorIndex, 2, result);
+            }
         }
 
         const hasOrOperator = tokens.find((token) => token === "OR");
