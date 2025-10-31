@@ -24,7 +24,6 @@ export class BooleanCalculator {
 
                 const result = (leftHandSide === "TRUE" || rightHandSide === "TRUE") ? "TRUE" : "FALSE";
                 tokens.splice(leftHandSideIndex, 3, result);
-                console.log(tokens)
             }
         }
 
@@ -32,7 +31,7 @@ export class BooleanCalculator {
         if(hasAndOperator) {
             const andOccurence = tokens.filter(w => w === "AND").length;
 
-             for(let i= 0; i < andOccurence; i++) {
+            for(let i= 0; i < andOccurence; i++) {
                 const andOperatorIndex = tokens.indexOf('AND');
                 const leftHandSideIndex = andOperatorIndex-1;
                 const rightHandSideIndex = andOperatorIndex+1;
