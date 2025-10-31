@@ -10,7 +10,7 @@ export class BooleanCalculator {
         if(hasNOTOperator) {
             const notOccurence = tokens.filter(token => token === "NOT").length;
             for(let i= 0; i < notOccurence; i++) {
-                const notOperatorIndex = tokens.indexOf('NOT');
+                const notOperatorIndex = tokens.lastIndexOf('NOT');
                 const rightHandSideIndex = notOperatorIndex+1;
                 const rightHandSide = tokens[rightHandSideIndex];
 
