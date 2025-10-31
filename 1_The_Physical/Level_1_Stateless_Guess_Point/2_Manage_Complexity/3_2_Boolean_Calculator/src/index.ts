@@ -15,7 +15,7 @@ export class BooleanCalculator {
                 const rightHandSide = tokens[rightHandSideIndex];
 
                 const result = (rightHandSide === "TRUE") ? "FALSE" : "TRUE";
-                tokens.splice(notOperatorIndex, 2, result);
+                tokens = tokens.slice(0, notOperatorIndex).concat(result, tokens.slice(notOperatorIndex + 2));
             }
         }
 
@@ -31,7 +31,7 @@ export class BooleanCalculator {
                 const rightHandSide = tokens[rightHandSideIndex];
 
                 const result = (leftHandSide === "TRUE" && rightHandSide === "TRUE") ? "TRUE" : "FALSE";
-                tokens.splice(leftHandSideIndex, 3, result);
+                tokens = tokens.slice(0, leftHandSideIndex).concat(result, tokens.slice(rightHandSideIndex + 1));
             }
         }
 
@@ -46,7 +46,7 @@ export class BooleanCalculator {
                 const rightHandSide = tokens[rightHandSideIndex];
 
                 const result = (leftHandSide === "TRUE" || rightHandSide === "TRUE") ? "TRUE" : "FALSE";
-                tokens.splice(leftHandSideIndex, 3, result);
+                tokens = tokens.slice(0, leftHandSideIndex).concat(result, tokens.slice(rightHandSideIndex + 1));
             }
         }
 
