@@ -54,7 +54,13 @@ describe('boolean calculator', () => {
     it.each([
         {input: '(TRUE OR TRUE OR TRUE) AND FALSE', expected: false},
         {input: 'NOT (TRUE AND TRUE)', expected: false},
-    ])('it should handle multiple negation', ({input, expected}) => {
+    ])('it should handle brackets', ({input, expected}) => {
+        expect(booleanCalculator.evaluate(input)).toBe(expected);
+    });
+
+    it.each([
+        {input: 'TRUE OR TRUE OR TRUE', expected: true},
+    ])('it should mutliple OR', ({input, expected}) => {
         expect(booleanCalculator.evaluate(input)).toBe(expected);
     });
 });
