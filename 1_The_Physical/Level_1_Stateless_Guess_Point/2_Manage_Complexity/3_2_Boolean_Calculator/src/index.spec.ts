@@ -39,7 +39,7 @@ describe('boolean calculator', () => {
     it.each([
         {input: 'TRUE AND FALSE OR TRUE', expected: true},
         {input: 'TRUE AND FALSE OR FALSE OR TRUE', expected: true},
-        {input: 'NOT TRUE AND TRUE should return false', expected: false}, 
+        {input: 'NOT TRUE AND TRUE', expected: false}, 
     ])('When $input is evaluated it should return $expected', ({input, expected}) => {
         expect(booleanCalculator.evaluate(input)).toBe(expected);
     });
