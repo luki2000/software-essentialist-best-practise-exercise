@@ -7,6 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// 1 first commit
 const Errors = {
     ValidationError: 'ValidationError',
     StudentNotFound: 'StudentNotFound',
