@@ -7,18 +7,18 @@ describe('palindrome checker', () => {
         palindrome = new Palindrome();
     });
 
-    it('should take string and return boolean', () => {
+    it(`should return true when it's return type is a boolean`, () => {
         expect(typeof palindrome.checker("")).toBe("boolean")
     });
 
     it.each([
-        {input: "mom", expected: true},
-        {input: "Mom", expected: true},
-        {input: "Was It A Rat I Saw", expected: true},
-        {input: "Never Odd or Even", expected: true},
-        {input: "1Never Odd or Even1", expected: true},
-    ])('should return true if input is palindrome', ({input, expected}) => {
-        expect(palindrome.checker(input)).toBe(expected);
+        {input: "mom"},
+        {input: "Mom"},
+        {input: "Was It A Rat I Saw"},
+        {input: "Never Odd or Even"},
+        {input: "1Never Odd or Even1"},
+    ])('should return true if input is palindrome', ({input}) => {
+        expect(palindrome.checker(input)).toBe(true);
     });
 
      it.each([
