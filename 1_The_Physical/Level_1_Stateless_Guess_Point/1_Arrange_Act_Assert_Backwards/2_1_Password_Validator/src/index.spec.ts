@@ -13,23 +13,23 @@ describe('password validator', () => {
       
       result = password.validate(input).errors;
 
-      expect(result.length).toBeTruthy();
+      expect(result.length).toBeGreaterThan(1);
   });
 
   test('when all password requirement are met the result in validation error object should be true for no errors', () => {
       let input = 'Angel1';
-      let result: ValidationError;
+      let expectedErrorObject: ValidationError;
       
-      result = password.validate(input);
+      expectedErrorObject = password.validate(input);
 
-      expect(result.result).toBeTruthy();
+      expect(expectedErrorObject.result).toBeTruthy();
   });
 
   test.each([
     {input: 'Angel', errorType: 'atleast_one_digit', expected: 'must contain at least one digit'},
     {input: 'nGel', errorType: 'out_of_bound', expected: 'be between 5 and 15 characters long'},
     {input: 'nzel1', errorType: 'atleast_one_capital', expected: 'must contain a capital letter'}
-  ])('it should return the right error message of the corresponding missing password criteria', ({ input, errorType, expected}) => {
+  ])('it should return the right error message with the matching error type', ({ input, errorType, expected}) => {
     let result: string;
       
     result = password.validate(input).errors.filter(error =>  error.type === errorType)[0]?.message;
