@@ -1,4 +1,4 @@
-import { Calculator } from './index';
+import { statsCalculator } from './index';
 
 describe('stats calculator', () => {
     it.each([
@@ -14,8 +14,12 @@ describe('stats calculator', () => {
             numberOfElements: 6,
             averageValue: 14.666666666667,
         }},
-    ])('adding an array of numbers as an input will return an object with the arrays maximum value, minimum value, number of elements and average value', ({input, expected}) => {
-        expect(Calculator.retrieveStats(input)).toStrictEqual(expected);
+    ])('adding an array of numbers as input will return an object with the arrays maximum value, minimum value, number of elements and average value', ({input, expected}) => {
+        expect(statsCalculator(input)).toStrictEqual(expected);
+    });
+
+    it('should throw an error if the array is empty', () => {
+        expect(() => statsCalculator([])).toThrow(new Error('Array is empty'));
     });
 });
 

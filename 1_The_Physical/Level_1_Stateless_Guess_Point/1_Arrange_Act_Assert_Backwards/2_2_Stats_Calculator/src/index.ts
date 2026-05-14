@@ -6,44 +6,24 @@ interface Stats {
     averageValue: number;
 }
 
-export class Calculator {
-    public static retrieveStats(arr: Array<number>): Stats {
-        return {
-            minimumValue: findMinNumber(arr),
-            maximumValue: findMaxNumber(arr),
-            numberOfElements: findArrLength(arr),
-            averageValue: calculateAverage(arr)
-        }
+export function statsCalculator(arr: Array<number>): Stats {
+    if(arr.length === 0) {
+        throw new Error("Array is empty");
     }
-}
 
-export function findMaxNumber(arr: Array<number>): number {
-    let firstElement = arr[0];
-    let maxNumber = firstElement;
-    for (const element of arr) {
-        maxNumber = element > maxNumber ? element : maxNumber;
+    let min = arr[0];
+    let max = arr[0];
+    let sum = 0;
+
+    for (const num of arr) {
+        if(num < min) min = num;
+        if(num > max) max = num;
+        sum += num;
     }
-    return maxNumber;
-}
-
-export function findMinNumber(arr: Array<number>): number {
-    let firstElement = arr[0];
-    let maxNumber = firstElement;
-    for (const element of arr) {
-        maxNumber = element < maxNumber ? element : maxNumber;
+    return {
+        minimumValue: min,
+        maximumValue: max,
+        numberOfElements: arr.length,
+        averageValue: Number((sum / arr.length).toFixed(12)),
     }
-    return maxNumber;
-}
-
-export function findArrLength(arr: Array<number>): number {
-    return arr.length;
-}
-
-export function calculateAverage(arr: Array<number>): number {
-    let total = 0;
-    for (const element of arr) {
-        total += element;
-    }
-    const avg = total / findArrLength(arr);
-    return Number(avg.toFixed(12));
 }
